@@ -1,7 +1,5 @@
 package btree
 
-import "fmt"
-
 /**
  * Order M tree:
  * Each node will have M children
@@ -34,29 +32,29 @@ type Tree struct {
 // }
 
 // AddKey will add a value to the keys provided there is space
-func (n *Node) AddKey(order int, value Value) (*Node, error) {
+func (n *Node) AddKey(order int, value Value) *Node {
 	l := len(n.keys)
 
-	if l < order-1 {
-		result := []Value{}
+	result := []Value{}
 
-		var i int
+	var i int
 
-		for i = 0; i < l; i++ {
-			if el := n.keys[i]; value <= el {
-				break
-			} else {
-				result = append(result, el)
-			}
+	for i = 0; i < l; i++ {
+		if el := n.keys[i]; value <= el {
+			break
+		} else {
+			result = append(result, el)
 		}
-
-		result = append(result, value)
-		result = append(result, n.keys[i:]...)
-
-		n.keys = result
-
-		return n, nil
 	}
 
-	return n, fmt.Errorf("Node hit maximum capacity: %v", n)
+	result = append(result, value)
+	result = append(result, n.keys[i:]...)
+
+	n.keys = result
+
+	return n
 }
+
+// func (n *Node) Promote(order int) *Node {
+
+// }
