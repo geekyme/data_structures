@@ -32,7 +32,7 @@ type Tree struct {
 // }
 
 // AddKey will add a value to the keys provided there is space
-func (n *Node) AddKey(order int, value Value) *Node {
+func (n *Node) AddKey(value Value) *Node {
 	l := len(n.keys)
 
 	result := []Value{}
