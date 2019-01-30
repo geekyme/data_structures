@@ -2,16 +2,19 @@ package tree
 
 import "strconv"
 
+// Node represents the nodes in the tree, with a binary structure
 type Node struct {
 	left  *Node
 	right *Node
 	value int
 }
 
+// Tree contains a pointer to the root Node
 type Tree struct {
 	root *Node
 }
 
+// CreateTree creates a binary search tree from a slice of numbers
 func CreateTree(nums []int) *Tree {
 	t := &Tree{}
 
@@ -44,6 +47,7 @@ func insert(node, newNode *Node) {
 	}
 }
 
+// DFS performs a depth-first search on the node and output the sequence of values
 func DFS(n *Node) string {
 	stack := []*Node{}
 
@@ -70,6 +74,7 @@ func DFS(n *Node) string {
 	return res
 }
 
+// BFS performs a breadth-first search on the node and output the sequence of values
 func BFS(n *Node) string {
 	queue := []*Node{}
 
