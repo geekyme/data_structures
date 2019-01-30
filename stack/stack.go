@@ -6,7 +6,7 @@ type Item struct {
 	next  *Item
 }
 
-// Stack holds a collection of items, FIFO style
+// Stack holds a collection of items, LIFO style
 type Stack struct {
 	top  *Item
 	size int
